@@ -1,0 +1,76 @@
+import pandas as  pd
+from datetime import datetime
+from config import *
+
+def create_email(outlook, unique_employees):
+    for (employee, email), group in unique_employees:
+        action = group.iloc[0]['Action']
+        expense_report = group.iloc[0]['Expense Report']
+
+        corrections = []
+        dates = []
+        notes = []
+
+        for i in range(1, 24):
+            correction = group.iloc[0][f'Correction {i}']
+            date = group.iloc[0][f'Date {i}']
+            note = group.iloc[0][f'Notes {i}']
+            
+            if correction is None and date is None and note is None:
+                break
+            
+            corrections.append(correction)
+            dates.append(date)
+            notes.append(note)
+        
+        if action == 'Removed':
+            # Create the email
+            outlook_email = outlook.CreateItem(0)  # 0 represents an email item
+            # Set the email properties
+            outlook_email.To = email
+            outlook_email.CC = sent_back_CC
+            outlook_email.Subject = removed_subject
+            emailBody = f"Dear {employee},<br><br>" + \
+            f'''
+            The following have been removed from Expense Report due to the following corrections:<br>
+            '''
+            for correction, date, note in zip(corrections, dates, notes):
+                if correction is not None and not pd.isna(correction):
+                    formatted_date = datetime.strftime(date, '%m/%d/%Y')
+                    emailBody += f'<b>--${correction:,.2f} on {formatted_date}: {note}<br></b>'
+            emailBody += f'<br>Please make these corrections and add to next report.<br>'
+            emailBody += signature
+            outlook_email.HTMLBody = f"<html><body>{emailBody}</body></html>"
+            outlook_email.Display()
+            # outlook_email.Send()
+        
+        if action == 'Sent Back':
+            outlook_email = outlook.CreateItem(0)  # 0 represents an email item
+            # Set the email properties
+            outlook_email.To = email
+            outlook_email.CC = sent_back_CC
+            outlook_email.Subject = sent_back_subject
+            emailBody = f"Dear {employee},<br><br>" + \
+            f'''
+            The Expense Report: {expense_report} was sent back to you for the following corrections:<br>
+            '''
+            for correction, date, note in zip(corrections, dates, notes):
+                if correction is not None and not pd.isna(correction) and not pd.isna(date):
+                    formatted_date = datetime.strftime(date, '%m/%d/%Y')
+                    emailBody += f'<b>--${correction} on {formatted_date}: {note}<br></b>'
+            emailBody += f'<br>Please make these corrections and resubmit the report.<br>'
+            emailBody += signature
+            outlook_email.HTMLBody = f"<html><body>{emailBody}</body></html>"
+            outlook_email.Display()
+            break
+            outlook_email.Send()
+
+def clean_and_filter(df):
+    filtered_df = df[df['Sent?'] == 'No']
+    return filtered_df
+
+outlook = initialize_outlook()
+df = pd.read_excel(data_path, sheet_name=sent_back_sheet_name)
+clean_filterd_df = clean_and_filter(df)
+unique_employees = gather_corrections_data(clean_filterd_df)
+email = create_email(outlook, unique_employees)
