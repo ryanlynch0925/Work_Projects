@@ -8,6 +8,7 @@ Welcome to my project portfolio! Below are various Python scripts designed to au
 3. [Expense Report Summary Generator](#expense-report-summary-generator)
 4. [PDF Invoice Organizer](#pdf-invoice-organizer)
 5. [PDFForm Automator](#pdfform-automator)
+6. [Tidal Wave Auto Spa Fleet Invoice Sender](#tidal-wave-auto-spa-fleet-invoice-sender)
 
 
 ## Expense Deduction Notifier
@@ -34,3 +35,8 @@ Description: The PDF Invoice Organizer is a Python script designed to organize P
 Description: The PDFForm Automator is a Python script designed to automate the process of generating PDFs from an Excel file and saving them with the respective site names.
 
 [Learn More](./PDFForm-Automator/README.md)
+
+## Tidal Wave Auto Spa Fleet Invoice Sender
+Description: The Tidal Wave Auto Spa Fleet Invoice Sender automates the process of sending monthly fleet invoices to clients. The script extracts relevant information from PDF invoices, categorizes accounts based on due amounts, and sends tailored emails with attached invoices.
+
+[Learn More](./Fleet-Invoice-Emailer/README.md)
