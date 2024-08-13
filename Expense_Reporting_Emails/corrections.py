@@ -1,8 +1,19 @@
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from requirement_install_functions import *
+
+requirements_file = os.path.join(os.path.dirname(__file__),'requirements.txt')
+install_required_packages(requirements_file)
+
 import pandas as  pd
 from datetime import datetime
 from corrections_config import fixed_CC
 from config import signature
-from paths import image_path, cheatsheet_path
+from paths import image_path, cheatsheet_path, correction_data_path
 from functions import initialize_outlook, gather_corrections_data
 
 def create_email(outlook, unique_employees):
@@ -51,13 +62,12 @@ def create_email(outlook, unique_employees):
         # Add your signature
         outlook_email.HTMLBody += signature.format(image_path=image_path)
         outlook_email.Attachments.Add(cheatsheet_path)
-        # outlook_email.Display()
-        outlook_email.Send()
-        # break
+        outlook_email.Display()
+        # outlook_email.Send()
+        break
         
 
 outlook = initialize_outlook()
-correction_data_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\Corrections V2.0.xlsx"
 fixed_df = pd.read_excel(correction_data_path, sheet_name='Corrected')
 data = gather_corrections_data(fixed_df)
 email = create_email(outlook, data)
