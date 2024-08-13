@@ -39,7 +39,7 @@ def is_package_installed(required_package):
         return True
     except subprocess.CalledProcessError:
         return False
-requirements_file = r'Fleet_Invoice_Email\requirements.txt'
+requirements_file = os.path.join(os.path.dirname(__file__),'requirements.txt')
 install_required_packages(requirements_file)
 
 ### Main Code ###
@@ -190,20 +190,19 @@ def main():
     start_time = timeit.default_timer()
     emails_to_send = []
     for root, dirs, files in os.walk(folder_path):
-            for filename in files:
-                if filename.endswith(".pdf"):
-                    pdf_path = os.path.join(root, filename)
-                    pdf_text = read_text(pdf_path)
-                    print(pdf_text)
-                    extracted_emails = extract_emails(pdf_text)
-                    account_info = extract_past_due_info(pdf_text)
-                    print(account_info.values())
-                    if account_info is not None:
-                        email = create_email(account_info, extracted_emails, pdf_path)
-                        if email is not None:
-                            emails_to_send.append(email)
-                    else:
-                        print(f"Skipping email creation for {pdf_path} due to error in extracting past due info.")
+        for filename in files:
+            if filename.endswith(".pdf"):
+                pdf_path = os.path.join(root, filename)
+                pdf_text = read_text(pdf_path)
+                extracted_emails = extract_emails(pdf_text)
+                account_info = extract_past_due_info(pdf_text)
+                print(account_info.values())
+                if account_info is not None:
+                    email = create_email(account_info, extracted_emails, pdf_path)
+                    if email is not None:
+                        emails_to_send.append(email)
+                else:
+                    print(f"Skipping email creation for {pdf_path} due to error in extracting past due info.")
 
     send_emails(emails_to_send)
     elapsed_time = timeit.default_timer() - start_time
