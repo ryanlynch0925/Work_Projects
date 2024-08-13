@@ -1,30 +1,30 @@
-# Project Portfolio
-Welcome to my project portfolio! Below are various Python scripts designed to automate different tasks. Each project focuses on a specific use case and aims to streamline processes. Feel free to explore the projects and check out detailed information in their respective README files.
+# Work Projects
+Welcome to my Work Projects Portfolio! Below are various Python scripts designed to automate different tasks. Each project focuses on a specific use case and aims to streamline processes. Feel free to explore the projects and check out detailed information in their respective README files.
 
 ## Table of Contents
 
-1. [Expense Deduction Notifier](#expense-deduction-notifier)
-2. [Expense Report Corrections Tool](#expense-report-corrections-tool)
+1. [Personal Expense Deduction Email](#Personal_Expense_Deduction_Email)
+2. [Expense Reporting Emails](#expense-report-corrections-tool)
 3. [Expense Report Summary Generator](#expense-report-summary-generator)
 4. [PDF Invoice Organizer](#pdf-invoice-organizer)
 5. [PDFForm Automator](#pdfform-automator)
 6. [Tidal Wave Auto Spa Fleet Invoice Sender](#tidal-wave-auto-spa-fleet-invoice-sender)
 
 
-## Expense Deduction Notifier
-Description: The Expense Deduction Notifier is a Python script designed to automate the process of notifying employees about personal expense deductions and sending necessary information for their payroll deductions.
+## Personal Expense Deduction Email
+Description: The Personal Expense Deduction Email is a Python script designed to automate the process of notifying employees about personal expense deductions and sending necessary information for their payroll deductions.
 
-[Learn More](./Expense-Deduction-Notifier/README.md)
+[Learn More](./Personal_Expense_Deduction_Email/README.md)
 
-## Expense Report Corrections Tool
-Description: The Expense Report Corrections Tool automates the process of notifying employees about corrections made to their expense reports and sends necessary information to managers for approval.
+## Expense Reporting Emails
+Description: Expense Reporting Emails is a collections of tools that automates the process of notifying employees about corrections needed and corrections made to their expense reports and sends necessary information to managers for approval.
 
-[Learn More](./Expense-Report-Corrections-Tool/README.md)
+[Learn More](./Expense_Reporting_Emails/README.md)
 
-## Expense Report Summary Generator
-Description: The Expense Report Summary Generator is a Python script designed to process and summarize expense reports. It identifies employees with expenses over 45 days old, generates a summary for each of them, and saves the summary to an Excel file.
+## Over 45 Days Old Report Generator
+Description: Over 45 Days Old Report Generator is a Python script designed to process and summarize expense reports. It identifies employees with expenses over 45 days old, generates a summary for each of them, and saves the summary to an Excel file. Another script is included to help inform the employees that their Company cards are subject to suspension if expenses are not reported.
 
-[Learn More](./Expense-Report-Summary-Generator/README.md)
+[Learn More](./Over_45_Days_Old/README.md)
 
 ## PDF Invoice Organizer
 Description: The PDF Invoice Organizer is a Python script designed to organize PDF invoices by extracting relevant information such as amount, invoice number, and date from the contents. It then renames and moves the files to a new location based on this information.
@@ -36,7 +36,7 @@ Description: The PDFForm Automator is a Python script designed to automate the p
 
 [Learn More](./PDFForm-Automator/README.md)
 
-## Tidal Wave Auto Spa Fleet Invoice Sender
-Description: The Tidal Wave Auto Spa Fleet Invoice Sender automates the process of sending monthly fleet invoices to clients. The script extracts relevant information from PDF invoices, categorizes accounts based on due amounts, and sends tailored emails with attached invoices.
+## Tidal Wave Auto Spa Fleet Invoice Email
+Description: The Tidal Wave Auto Spa Fleet Invoice Email automates the process of sending monthly fleet invoices to clients. The script extracts relevant information from PDF invoices, categorizes accounts based on due amounts, and sends tailored emails with attached invoices.
 
-[Learn More](./Fleet-Invoice-Emailer/README.md)
+[Learn More](./Fleet_Invoice_Email/README.md)
