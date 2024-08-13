@@ -1,3 +1,14 @@
+import sys
+import os
+
+# Add the parent directory to the system path
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from requirement_install_functions import *
+
+requirements_file = os.path.join(os.path.dirname(__file__),'requirements.txt')
+install_required_packages(requirements_file)
+
 import pandas as  pd
 from datetime import datetime
 from config import sent_back_CC, sent_back_subject, correction_notes, signature, sent_back_sheet_name
@@ -121,7 +132,6 @@ def clean_and_filter(df):
     filtered_df = df[df['Sent?'] == 'No']
     return filtered_df
 
-data_path = r'c:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\Master Expense Report V4.0.xlsx'
 outlook = initialize_outlook()
 df = pd.read_excel(data_path, sheet_name=sent_back_sheet_name)
 clean_filterd_df = clean_and_filter(df)
