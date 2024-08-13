@@ -1,0 +1,7 @@
+cheatsheet_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\.000001 TW Expenses\Expense Item Cheat Sheat.docx"
+itemization_instructions_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\.1 Training\Itemizing Receipts.docx"
+amazon_invoice_error_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\PDF Instructions\Amazon_Order_Instructions.pdf"
+walmart_dot_com_invoice_error_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\PDF Instructions\Walmart_Order_Instructions.pdf"
+globalIndustrial_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\.1 Training\GlobalIndustrial.pdf"
+data_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\Corrections Template.xlsx"
+image_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\Scripts\Company Logo.png"
