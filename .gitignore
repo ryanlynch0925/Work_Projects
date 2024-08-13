@@ -1,1 +1,3 @@
-pyvenv.cfg
+*.cfg
+__pycache__
+*.log
