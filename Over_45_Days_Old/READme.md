@@ -31,22 +31,22 @@ The Expense Report Summary Generator is a Python script that automates the ident
 Before using the Expense Report Summary Generator, ensure you have the following installed:
 
 - Python (3.x recommended)
-- Required Python packages: `pandas`, `openpyxl` (install via `pip install -r requirements.txt`)
+- Required Python packages: `pandas`, `openpyxl`, etc. (install via `pip install -r requirements.txt`)
 
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/Over-45-Days-Old-Report.git
+   git clone https://github.com/your-username/over-45-days-old-report.git
 
 2. Navigate to the project directory:
-    cd Over-45-Days-Old-Report
+    cd expense-report-corrections
 
 3. Install dependencies:
     pip install -r requirements.txt
 
 ### Usage
 
-1.Set up your Outlook credentials and other configurations in a config.py file.
+1.Set up your Outlook credentials and other configurations in the config.py file.
 2.Prepare your expense report data in an Excel sheet.
 3.Run the script:
     python expense_report_corrections.py
@@ -55,7 +55,6 @@ Before using the Expense Report Summary Generator, ensure you have the following
 ### Configuration
 
 Adjust the 'config.py' file to customize the email templates, Outlook settings, and other configurations.
-** Make sure data_path and summary_file_path is added to your config.py file **
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt)file for details.
