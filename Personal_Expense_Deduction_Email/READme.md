@@ -10,6 +10,7 @@ The Expense Deduction Notifier is a Python script designed to automate the proce
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -30,15 +31,15 @@ The Expense Deduction Notifier reads personal expense data from an Excel file, c
 Before using the Expense Deduction Notifier, ensure you have the following installed:
 
 - Python (3.x recommended)
-- Required Python packages: `pandas`, `pywin32` (install via `pip install -r requirements.txt`)
+- Required Python packages: `pandas`, `win32com.client` (install via `pip install -r requirements.txt`)
 
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/Expense-Deduction-Notifier.git
+   git clone https://github.com/your-username/expense-deduction-notifier.git
 
 2. Navigate to the project directory:
-    cd Expense-Deduction-Notifier
+    cd expense-deduction-notifier
 
 3. Install dependencies:
     pip install -r requirements.txt
@@ -48,8 +49,12 @@ Before using the Expense Deduction Notifier, ensure you have the following insta
 1.Set up your Outlook credentials and other configurations in the config.py file.
 2.Prepare your expense report data in an Excel sheet.
 3.Run the script:
-    python Expense-Deduction-Notifierr.py
+    python expense-deduction-notifier.py
 4.Follow the prompts to initiate the corrections communication process.
+
+### Configuration
+
+Adjust the 'config.py' file to customize the email templates, Outlook settings, and other configurations.
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt)file for details.
