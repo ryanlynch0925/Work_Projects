@@ -37,10 +37,10 @@ Ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/Expense-Reporting-Emails.git
+   git clone https://github.com/your-username/expense-report-corrections.git
 
 2. Navigate to the project directory:
-    cd Expense-Reporting-Emails
+    cd expense-report-corrections
 
 3. Install dependencies:
     pip install -r requirements.txt
@@ -50,7 +50,7 @@ Ensure you have the following installed:
 1.Set up your Outlook credentials and other configurations in the config.py file.
 2.Prepare your expense report data in an Excel sheet.
 3.Run the script:
-    python fixedreports.py
+    python expense_report_corrections.py
 4.Follow the prompts to initiate the corrections communication process.
 
 ### Configuration
