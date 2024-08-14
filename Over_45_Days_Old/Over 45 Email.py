@@ -2,12 +2,11 @@ import pandas as pd
 from datetime import datetime
 import win32com.client as win32
 import traceback
-from config import signature
+from config import signature, summary_file_path
 
-report_name = '8.5.24'
-workbook_path = f"C:\\Users\DavidLynch\\OneDrive - Tidal Wave Autospa\\Documents\\30-Day Report\\{report_name}.xlsb"
+report_name = input('Please type in sheet name.\n')
 
-df = pd.read_excel(workbook_path)
+df = pd.read_excel(summary_file_path, sheet_name=report_name)
 
 def initialize_outlook():
     try:
@@ -21,7 +20,6 @@ def clean_and_filter(df):
     filtered_df = df[df['Email'] == 'Yes']
     # filtered_df = df[df['Not Submitted'] >= 50.00]
     return filtered_df
-
 def gather_corrections_data(clean_filterd_df):
     unique_employees = clean_filterd_df.groupby(['Employee', 'Email'])
     return unique_employees

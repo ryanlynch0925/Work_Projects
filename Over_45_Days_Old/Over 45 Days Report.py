@@ -1,7 +1,16 @@
 import pandas as pd
 from openpyxl import Workbook, load_workbook
 import os
+import sys
 from config import data_path, summary_file_path
+
+# Add the parent directory to the system path
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from requirement_install_functions import *
+
+requirements_file = 'requirements.txt'
+install_required_packages(requirements_file)
 
 class ExpenseReportProcessor:
     """
