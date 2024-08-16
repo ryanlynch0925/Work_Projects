@@ -11,10 +11,10 @@ install_required_packages(requirements_file)
 
 import pandas as  pd
 from datetime import datetime
-from corrections_config import fixed_CC
-from config import signature
-from paths import image_path, cheatsheet_path, correction_data_path
-from functions import initialize_outlook, gather_corrections_data
+from .corrections_config import fixed_CC
+from .config import signature
+from .paths import image_path, cheatsheet_path, correction_data_path
+from .functions import initialize_outlook, gather_corrections_data
 
 def create_email(outlook, unique_employees):
     for (employee, email, expense_report), group in unique_employees:
@@ -66,8 +66,8 @@ def create_email(outlook, unique_employees):
         # outlook_email.Send()
         break
         
-
-outlook = initialize_outlook()
-fixed_df = pd.read_excel(correction_data_path, sheet_name='Corrected')
-data = gather_corrections_data(fixed_df)
-email = create_email(outlook, data)
+def main():
+    outlook = initialize_outlook()
+    fixed_df = pd.read_excel(correction_data_path, sheet_name='Corrected')
+    data = gather_corrections_data(fixed_df)
+    email = create_email(outlook, data)

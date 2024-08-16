@@ -1,19 +1,20 @@
 import sys
 import os
 
+
 # Add the parent directory to the system path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from requirement_install_functions import *
+from .config import sent_back_CC, sent_back_subject, correction_notes, signature, sent_back_sheet_name
+from .functions import initialize_outlook
+from .paths import *
 
 requirements_file = os.path.join(os.path.dirname(__file__),'requirements.txt')
 install_required_packages(requirements_file)
 
 import pandas as  pd
 from datetime import datetime
-from config import sent_back_CC, sent_back_subject, correction_notes, signature, sent_back_sheet_name
-from functions import initialize_outlook
-from paths import *
 
 def gather_corrections_data(clean_filterd_df):
     unique_employees = clean_filterd_df.groupby(['Employee', 'Email', 'Expense Report', 'Action'])
@@ -126,15 +127,15 @@ def create_email(outlook, unique_employees):
             perfect_email(employee, expense_report, outlook_email)
 
         outlook_email.Display()
-        break
         
 def clean_and_filter(df):
     filtered_df = df[df['Sent?'] == 'No']
     return filtered_df
 
-outlook = initialize_outlook()
-df = pd.read_excel(data_path, sheet_name=sent_back_sheet_name)
-clean_filterd_df = clean_and_filter(df)
-unique_employees = gather_corrections_data(clean_filterd_df)
-email = create_email(outlook, unique_employees)
 
+def main():
+    outlook = initialize_outlook()
+    df = pd.read_excel(data_path, sheet_name=sent_back_sheet_name)
+    clean_filterd_df = clean_and_filter(df)
+    unique_employees = gather_corrections_data(clean_filterd_df)
+    email = create_email(outlook, unique_employees)
