@@ -1,5 +1,5 @@
 import pandas as pd
-from paths import image_path
+from .paths import image_path
 
 signature = f'''
             <br><span style= 'color: #E476F44; font-size: 22pt'>David Ryan Lynch</b><br></span>
