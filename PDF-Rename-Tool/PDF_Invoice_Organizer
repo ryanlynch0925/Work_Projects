@@ -6,7 +6,7 @@ import shutil
 import tempfile
 import subprocess
 
-folder_path = r"C:\Users\DavidLynch\OneDrive - Tidal Wave Autospa\Documents\Invoices\A & H Unproccesed"
+folder_path = os.path.join(os.path.dirname(__file__), "PDFs")
 amount_pattern = r'\$[0-9,]+\.\d{2}'  # Pattern to match $XXX.XX but not $0.00
 invoice_pattern = r'Invoice#(\d+)'  # Pattern to match Invoice# followed by a number
 invoice_date_pattern = r'\d{1,2}/\d{1,2}/\d{4}'
@@ -25,7 +25,7 @@ for root, dirs, files in os.walk(folder_path):
 
                 # Remove white spaces (spaces, tabs, and line breaks) from the text
                 pdf_text_stripped = re.sub(r'\s', '', pdf_text)
-                #print(pdf_text_stripped)
+                print(pdf_text_stripped)
 
                 # Use regular expressions to find the first occurrence of the amount pattern
                 amount_match = re.search(amount_pattern, pdf_text_stripped)
