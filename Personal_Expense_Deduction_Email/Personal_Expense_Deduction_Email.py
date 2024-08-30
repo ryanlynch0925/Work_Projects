@@ -1,6 +1,6 @@
 import pandas as pd
 import win32com.client as win32
-from .personal_expense_constants import signature
+from personal_expense_constants import signature
 import os
 ######Send out Wednesday's email######
 outlook = win32.Dispatch('Outlook.Application')
@@ -45,7 +45,7 @@ def main():
         f'''
         We have a total personal charge balance of ${Total_Reimbursement:,.2f}. This amount will be deducted from your next payroll.<br><br>
 
-        <b><i><mark>Please respond to this email with Confirmation of amount.<br><br></b></i></mark>
+        <b><i><span style="background-color: yellow;">Please respond to this email with Confirmation of amount. If we do not receive a response, please be aware that the amount will be deducted accordingly.</span><br><br></b></i>
 
         If you have any questions regarding expense details, please contact me at the number below.<br><br>
         If you have any questions regarding payroll deductions, send an email to homeoffice.payroll@twavelead.com<br><br>
@@ -53,6 +53,9 @@ def main():
         emailbody += signature
         mail.HTMLBody = f'<html><body>{emailbody}</body></html>'
         
-        mail.Display()
+        # mail.Display()
         # break
-        # mail.Send()
+        mail.Send()
+
+if __name__ == "__main__":
+    main()
