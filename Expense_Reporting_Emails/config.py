@@ -37,7 +37,7 @@ correction_notes = {
     "Separate Receipts": "Please separate each charge into its own line item.",
     "Amazon Invoice Error": "Please refer to the attached Amazon Instructions to resolve this correction.",
     "Walmart.com Invoice Error": "Please refer to the attached Walmart.com Instructions to resolve this correction.",
-    "Itemization Needed": "Please refer to the attached cheat sheet to itemize the expense line correctly.",
+    "Itemization Needed": "Please refer to the attached training document, 'Itemizing Receipts' to itemize the expense line correctly.",
     "Missing Receipt": "Please ensure the 'Missing Receipt?' checkbox is checked for any missing receipts.",
     "Recheck Itemization": "Please check cheat sheet to review the itemization; one or more lines are incorrect and need to be revised. <span style=\"background-color: yellow;\">(Please group like items.)</span>",
     "Global Industrial": "Please refer to the attached Global Industrial Instructions for future purchases.",
